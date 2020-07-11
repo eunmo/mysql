@@ -1,8 +1,6 @@
 # @eunmo/mysql
 An async wrapper for MySQL connection pool. This package tries to hide away the boilerplates for the MySQL library to minimize setup.
 
-[![NPM Version][npm-version-image]][npm-url]
-
 # Usage
 
 ```js
@@ -16,7 +14,7 @@ The return type of `dml`/`sql` is identical to that of [`mysql`](https://www.npm
 
 # Database connection configuration
 
-This package uses the config [`config`](https://www.npmjs.com/package/config) package for setup. For starters, put the following in `config/default.json`. 
+This package uses the config [`config`](https://www.npmjs.com/package/config) package for setup. For starters, put the following in `config/default.json`.
 
 ```json
 {
@@ -38,7 +36,7 @@ If you also want to change the connection pool size, you can also specify it. Th
     "user": "dummy_user",
     "password": "dummy_password",
     "database": "dummy",
-    "connectionLimit": 100,
+    "connectionLimit": 100
   }
 }
 ```
