@@ -1,0 +1,26 @@
+{
+  "name": "@eunmo/mysql",
+  "version": "1.0.0",
+  "description": "Async wrapper for MySQL connection pool",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest -w 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eunmo/mysql.git"
+  },
+  "author": "Eunmo Yang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eunmo/mysql/issues"
+  },
+  "homepage": "https://github.com/eunmo/mysql#readme",
+  "dependencies": {
+    "config": "^3.3.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "jest": "^26.1.0"
+  }
+}

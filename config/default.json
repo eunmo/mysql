@@ -1,0 +1,8 @@
+{
+  "dbConfig": {
+    "host": "localhost",
+    "user": "dummy_user",
+    "password": "dummy_password",
+    "database": "dummy"
+  }
+}
