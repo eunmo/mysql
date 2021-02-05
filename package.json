@@ -1,6 +1,6 @@
 {
   "name": "@eunmo/mysql",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Async wrapper for MySQL connection pool",
   "main": "src/index.js",
   "scripts": {
