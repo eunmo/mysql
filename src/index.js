@@ -13,15 +13,15 @@ const pool = mysql.createPool({
   timezone: 'UTC+0',
 });
 
-const exec = async (sql) => {
+const exec = async (sql, values = null) => {
   try {
-    const promise = new Promise((resolve, reject) => {
+    return await new Promise((resolve, reject) => {
       pool.getConnection((err, connection) => {
         if (err) {
           reject(err);
         }
 
-        connection.query(sql, (error, results) => {
+        connection.query(sql, values, (error, results) => {
           connection.release();
           if (error) {
             reject(error);
@@ -31,12 +31,19 @@ const exec = async (sql) => {
         });
       });
     });
-    const rows = await promise;
-    return rows;
   } catch (err) {
     console.log(`Database error while handling ${sql}`); // eslint-disable-line no-console
     throw err;
   }
+};
+
+const insertMultiple = async (sql, values) => {
+  return exec(sql, [values]);
+};
+
+const queryOne = async (sql, values = null) => {
+  const rows = await exec(sql, values);
+  return rows.length > 0 ? rows[0] : null;
 };
 
 const cleanup = async () => {
@@ -51,4 +58,4 @@ const cleanup = async () => {
   });
 };
 
-module.exports = { dml: exec, query: exec, cleanup };
+module.exports = { dml: exec, insertMultiple, query: exec, queryOne, cleanup };

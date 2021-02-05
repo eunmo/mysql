@@ -4,10 +4,15 @@ An async wrapper for MySQL connection pool. This package tries to hide away the 
 # Usage
 
 ```js
-const { dml, sql } = require('@eunmo/mysql');
+const { dml, insertMultiple, query, queryOne } = require('@eunmo/mysql');
 awiat dml('CREATE TABLE some_table (C1 int)');
-const added = await dml('INSERT INTO some_table VALUES (1);');
-const rows = await sql('SELECT * FROM some_table;');
+const added1 = await dml('INSERT INTO some_table VALUES (1);');
+const added2 = await dml('INSERT INTO some_table VALUES ?;', '(1)');
+const values = [[2], [3]];
+const added3 = await insertMultiple('INSERT INTO some_table VALUES ?;', values);
+const rows = await query('SELECT * FROM some_table;');
+const row1 = await queryOne('SELECT * FROM some_table WHERE C1 = ?;', 1);
+const row1 = await queryOne('SELECT * FROM some_table WHERE C1 = ?;', [1]);
 ```
 
 The return type of `dml`/`sql` is identical to that of [`mysql`](https://www.npmjs.com/package/mysql) package's `connection.query`.

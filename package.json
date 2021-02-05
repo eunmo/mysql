@@ -1,6 +1,6 @@
 {
   "name": "@eunmo/mysql",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Async wrapper for MySQL connection pool",
   "main": "src/index.js",
   "scripts": {
@@ -18,20 +18,20 @@
   },
   "homepage": "https://github.com/eunmo/mysql#readme",
   "dependencies": {
-    "config": "^3.3.2",
+    "config": "^3.3.3",
     "mysql": "^2.18.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.9.0",
-    "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-prettier": "^3.1.4",
-    "husky": "^4.3.0",
-    "jest": "^26.4.2",
-    "lint-staged": "^10.4.0",
-    "prettier": "^2.1.2"
+    "eslint": "^7.19.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "husky": "^4.3.8",
+    "jest": "^26.6.3",
+    "lint-staged": "^10.5.3",
+    "prettier": "^2.2.1"
   },
   "eslintConfig": {
     "extends": [
