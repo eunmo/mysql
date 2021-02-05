@@ -1,4 +1,4 @@
-const { dml, insertMultiple, query, queryOne, cleanup } = require('.');
+const { dml, query, queryOne, cleanup } = require('.');
 
 beforeAll(async () => {
   await dml('DROP TABLE IF EXISTS dummy_tbl');
@@ -25,12 +25,18 @@ test('can insert', async () => {
   expect(rows.length).toBe(2);
 });
 
+test('can insert 1 set of values', async () => {
+  await dml('INSERT INTO dummy_tbl VALUES (?)', [[1, 'a']]);
+  const rows = await query('SELECT * from dummy_tbl');
+  expect(rows.length).toBe(1);
+});
+
 test('can insert multiple values', async () => {
   const values = [
     [1, 'a'],
     [2, 'b'],
   ];
-  await insertMultiple('INSERT INTO dummy_tbl VALUES ?', values);
+  await dml('INSERT INTO dummy_tbl VALUES ?', [values]);
   const rows = await query('SELECT * from dummy_tbl');
   expect(rows.length).toBe(2);
 });

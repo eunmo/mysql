@@ -4,18 +4,17 @@ An async wrapper for MySQL connection pool. This package tries to hide away the 
 # Usage
 
 ```js
-const { dml, insertMultiple, query, queryOne } = require('@eunmo/mysql');
+const { dml, query, queryOne } = require('@eunmo/mysql');
 awiat dml('CREATE TABLE some_table (C1 int)');
 const added1 = await dml('INSERT INTO some_table VALUES (1);');
-const added2 = await dml('INSERT INTO some_table VALUES ?;', '(1)');
-const values = [[2], [3]];
-const added3 = await insertMultiple('INSERT INTO some_table VALUES ?;', values);
+const added2 = await dml('INSERT INTO some_table VALUES (?);', 2);
+const added3 = await dml('INSERT INTO some_table VALUES ?;', [[[3], [4]]]);
 const rows = await query('SELECT * FROM some_table;');
 const row1 = await queryOne('SELECT * FROM some_table WHERE C1 = ?;', 1);
 const row1 = await queryOne('SELECT * FROM some_table WHERE C1 = ?;', [1]);
 ```
 
-The return type of `dml`/`insertMultiple`/`query` is identical to that of [`mysql`](https://www.npmjs.com/package/mysql) package's `connection.query`.
+The return type of `dml`/`query` is identical to that of [`mysql`](https://www.npmjs.com/package/mysql) package's `connection.query`.
 The return type of `queryOne` is a single row of [`mysql`](https://www.npmjs.com/package/mysql) package's `connection.query` or `null` if no row can be fetched.
 
 # Database connection configuration
