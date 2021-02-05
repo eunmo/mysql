@@ -37,9 +37,13 @@ const exec = async (sql, values = null) => {
   }
 };
 
+const dml = exec;
+
 const insertMultiple = async (sql, values) => {
   return exec(sql, [values]);
 };
+
+const query = exec;
 
 const queryOne = async (sql, values = null) => {
   const rows = await exec(sql, values);
@@ -58,4 +62,4 @@ const cleanup = async () => {
   });
 };
 
-module.exports = { dml: exec, insertMultiple, query: exec, queryOne, cleanup };
+module.exports = { dml, insertMultiple, query, queryOne, cleanup };

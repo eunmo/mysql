@@ -15,7 +15,8 @@ const row1 = await queryOne('SELECT * FROM some_table WHERE C1 = ?;', 1);
 const row1 = await queryOne('SELECT * FROM some_table WHERE C1 = ?;', [1]);
 ```
 
-The return type of `dml`/`sql` is identical to that of [`mysql`](https://www.npmjs.com/package/mysql) package's `connection.query`.
+The return type of `dml`/`insertMultiple`/`query` is identical to that of [`mysql`](https://www.npmjs.com/package/mysql) package's `connection.query`.
+The return type of `queryOne` is a single row of [`mysql`](https://www.npmjs.com/package/mysql) package's `connection.query` or `null` if no row can be fetched.
 
 # Database connection configuration
 
