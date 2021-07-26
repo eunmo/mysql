@@ -1,2 +1,4 @@
-config
+config/
+initdb/
 *.test.js
+docker-compose.yaml
